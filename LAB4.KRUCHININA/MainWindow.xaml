@@ -1,0 +1,45 @@
+﻿<Window x:Class="LAB4.KRUCHININA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB4.KRUCHININA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="25" VerticalAlignment="Top" Grid.Row="0">
+            <MenuItem Header="Mеню">
+                <MenuItem x:Name="mmCreate" Header="Создать ..." Click="mmCreate_Click" ></MenuItem>
+                <MenuItem x:Name="mmCopy" Header="Копировать" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Выход" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="О программе" ></MenuItem>
+        </Menu>
+        <ToolBar Height="50" Grid.Row="1">
+            <Button Margin="5" x:Name="tbCreate" Click="tbCreate_Click">
+                <Image Source="plus.png" />
+            </Button>
+            <Button Margin="5" x:Name="tbCopy" >
+                <Image Source="copy.png" />
+            </Button>
+            <CheckBox x:Name="fourfive" Content="4 или 5" Click="CheckBox_Click" />
+        </ToolBar>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10"/>
+        <ListView  x:Name="listStudents" Grid.Row="2">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="200">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=GroupNumber}" Width="100">Группа</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Marks}" Width="200">Оценки</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Avg}" Width="200">Средний балл</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
